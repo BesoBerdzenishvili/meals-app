@@ -35,10 +35,10 @@ export const {styled, css, globalCss, keyframes, getCssText, theme, createTheme,
     },
   })
 
-  export const injectGlobalStyles = globalCss({
-    '*': {
-      margin: 0,
-      padding: 0,
-      boxSizing: 'border-box'
-    },
-  })
+export const injectGlobalStyles = globalCss({
+  '*': {
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box',
+  },
+})
