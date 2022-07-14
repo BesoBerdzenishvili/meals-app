@@ -14,6 +14,12 @@ export const {styled, css, globalCss, keyframes, getCssText, theme, createTheme,
       },
     },
     utils: {
+      m: (value) => ({
+        margin: value,
+      }),
+      p: (value) => ({
+        padding: value,
+      }),
       linearGradient: (value) => ({
         backgroundImage: `linear-gradient(${value})`,
       }),
