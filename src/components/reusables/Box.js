@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Box({
-  as: Component,
+  as: Component = 'div',
   children,
   display = 'block',
   m,
@@ -17,7 +17,4 @@ export default function Box({
       {children}
     </Component>
   )
-}
-Box.defaultProps = {
-  as: 'div',
 }
