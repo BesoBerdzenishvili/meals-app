@@ -1,26 +1,23 @@
-import {styled} from '@stitches/react'
+import React from 'react'
 
-export const Box = styled('div', {
-  display: 'block',
-  variants: {
-    display: {
-      true: {
-        display: 'inline-block',
-      },
-    },
-    display: {
-      flex: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        alignSelf: 'center',
-      },
-    },
-    display: {
-      inlineFlex: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        alignSelf: 'center',
-      },
-    },
-  },
-})
+export default function Box({
+  as: Component,
+  children,
+  display = 'block',
+  m,
+  p,
+  justifyContent,
+  alignItems,
+  alignSelf,
+}) {
+  return (
+    <Component
+      style={{display: display, margin: m, padding: p, justifyContent, alignItems, alignSelf}}
+    >
+      {children}
+    </Component>
+  )
+}
+Box.defaultProps = {
+  as: 'div',
+}
