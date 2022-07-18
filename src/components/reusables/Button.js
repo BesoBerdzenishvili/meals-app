@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Button({
   as: Component = 'button',
-  children,
   size = 'normal',
   variant = 'primary',
   type = 'button',
+  ...args
 }) {
   let bg
   let col
@@ -36,7 +36,7 @@ export default function Button({
       }}
       type={type}
     >
-      {children}
+      {args.children}
     </Component>
   )
 }
