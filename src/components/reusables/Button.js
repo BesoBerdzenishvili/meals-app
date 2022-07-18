@@ -5,7 +5,8 @@ export default function Button({
   size = 'normal',
   variant = 'primary',
   type = 'button',
-  ...args
+  children,
+  ...restProps
 }) {
   let bg
   let col
@@ -34,9 +35,9 @@ export default function Button({
         backgroundColor: bg,
         color: col,
       }}
-      type={type}
+      {...restProps}
     >
-      {args.children}
+      {children}
     </Component>
   )
 }

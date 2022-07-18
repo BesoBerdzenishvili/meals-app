@@ -1,18 +1,29 @@
 import React from 'react'
 
-export default function Box({as: Component = 'div', display = 'block', ...args}) {
+export default function Box({
+  as: Component = 'div',
+  display = 'block',
+  justifyContent,
+  alignItems,
+  alignSelf,
+  children,
+  m,
+  p,
+  ...restProps
+}) {
   return (
     <Component
       style={{
         display: display,
-        margin: args.m,
-        padding: args.p,
-        justifyContent: args.justifyContent,
-        alignItems: args.alignItems,
-        alignSelf: args.alignSelf,
+        margin: m,
+        padding: p,
+        justifyContent,
+        alignItems,
+        alignSelf,
       }}
+      {...restProps}
     >
-      {args.children}
+      {children}
     </Component>
   )
 }
