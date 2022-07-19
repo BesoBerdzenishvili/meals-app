@@ -1,4 +1,5 @@
-import React from 'react'
+import {useMemo} from 'react'
+import {css} from '../../stitches.config'
 
 export default function Box({
   as: Component = 'div',
@@ -11,18 +12,27 @@ export default function Box({
   p,
   ...restProps
 }) {
-  return (
-    <Component
-      style={{
-        display: display,
+  const boxStyles = useMemo(
+    () =>
+      css({
+        display,
         margin: m,
         padding: p,
-        justifyContent,
-        alignItems,
-        alignSelf,
-      }}
-      {...restProps}
-    >
+
+        variants: {
+          display: {
+            flex: {
+              justifyContent,
+              alignItems,
+              alignSelf,
+            },
+          },
+        },
+      }),
+    [display, m, p, justifyContent, alignItems, alignSelf]
+  )
+  return (
+    <Component className={boxStyles({display: display})} {...restProps}>
       {children}
     </Component>
   )
