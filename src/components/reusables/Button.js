@@ -1,5 +1,4 @@
-import React from 'react'
-import {css} from '@stitches/react'
+import {css} from '../../stitches.config'
 
 export default function Button({
   as: Component = 'button',
@@ -8,7 +7,7 @@ export default function Button({
   children,
   ...restProps
 }) {
-  const btn = css({
+  const btnStyles = css({
     variants: {
       variant: {
         primary: {
@@ -39,7 +38,7 @@ export default function Button({
     },
   })
   return (
-    <Component className={btn({variant: variant, size: size})} {...restProps}>
+    <Component className={btnStyles({variant: variant, size: size})} {...restProps}>
       {children}
     </Component>
   )

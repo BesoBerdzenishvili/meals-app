@@ -1,18 +1,16 @@
 import React from 'react'
-import {css} from '@stitches/react'
+import {styled} from '../../stitches.config'
 
-export default function Input({variant = 'normal', ...restProps}) {
-  const inpStyle = css({
+export default function Input({fluid, ...restProps}) {
+  const StyledInput = styled('input', {
+    width: '200px',
     variants: {
-      variant: {
-        normal: {
-          width: '200px',
-        },
-        fluid: {
+      fluid: {
+        true: {
           width: '100%',
         },
       },
     },
   })
-  return <input {...restProps} className={inpStyle({variant: variant})} />
+  return <StyledInput {...restProps} fluid={fluid} />
 }
