@@ -1,4 +1,5 @@
 import React from 'react'
+import {css} from '@stitches/react'
 
 export default function Box({
   as: Component = 'div',
@@ -11,18 +12,23 @@ export default function Box({
   p,
   ...restProps
 }) {
+  const box = css({
+    display: display,
+    margin: m,
+    padding: p,
+
+    variants: {
+      display: {
+        flex: {
+          justifyContent,
+          alignItems,
+          alignSelf,
+        },
+      },
+    },
+  })
   return (
-    <Component
-      style={{
-        display: display,
-        margin: m,
-        padding: p,
-        justifyContent,
-        alignItems,
-        alignSelf,
-      }}
-      {...restProps}
-    >
+    <Component className={box({display: display})} {...restProps}>
       {children}
     </Component>
   )
